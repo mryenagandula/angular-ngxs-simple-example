@@ -1,0 +1,8 @@
+<div class="container mt-3">
+  <h3 class="mt-3 p-2 bg-primary text-white">List of pokemans <span *ngIf="pokemanCount$ | async as pokemanCount">( {{pokemanCount}} )</span></h3>
+  <ul class="list-group" *ngIf="pokemans$ | async as pokemans" style="height: 500px;overflow-y: auto;">
+    <li class="list-group-item" [ngClass]="selectedPokeman===pokeman.url ? 'active' : ''" (click)="selectedPokeman = pokeman.url" *ngFor="let pokeman of pokemans">
+      {{pokeman.name | titlecase }}
+    </li>
+  </ul>
+</div>
